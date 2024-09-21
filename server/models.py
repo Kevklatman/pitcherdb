@@ -13,7 +13,7 @@ class Pitcher(db.Model, SerializerMixin):
     Yrs = db.Column(db.Integer)
     IP = db.Column(db.Integer)
     rk = db.Column(db.Integer)
-    ASG = db.Column(db.Boolean)
+    ASG = db.Column(db.Boolean)##
     
     def __repr__(self):
         return f"Pitcher('{self.Name}', {self.Yrs}, {self.ERA})"
