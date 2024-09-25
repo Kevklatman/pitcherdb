@@ -33,7 +33,7 @@ function PlayerCard() {
       <h1>Pitchers</h1>
       <ul>
         {pitchers.map(pitchers => (
-          <li key={pitchers.ID}>{pitchers.Name}</li>
+          <li key={pitchers.ID}>{pitchers.name}</li>
         ))}
       </ul>
     </div>
