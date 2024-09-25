@@ -1,17 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Home from './Home'; // Adjust the path as needed
+import Body from "./Body"
 
 function App() {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch('/api/data')
-      .then(response => response.json())
-      .then(data => setData(data));
-  }, []);
-
   return (
-    <div>
-      {data ? <p>{JSON.stringify(data)}</p> : <p>Loading...</p>}
+    <div className="App">
+      <Home />
+      <Body />
     </div>
   );
 }

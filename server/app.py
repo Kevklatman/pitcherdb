@@ -3,8 +3,11 @@ from flask_migrate import Migrate
 import os
 import logging
 from models import db, Pitcher  # Import db from models
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
