@@ -13,6 +13,7 @@ class Pitcher(db.Model, SerializerMixin):
     IP = db.Column(db.Float)  # Changed to Float for more precision
     rk = db.Column(db.Integer)
     ASG = db.Column(db.Boolean)
+    img = db.Column(db.String)
     
     def __repr__(self):
         return f"Pitcher('{self.Name}', {self.Yrs}, {self.ERA})"
