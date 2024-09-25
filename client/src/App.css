@@ -42,3 +42,33 @@
 .search-bar{
   text-align: center;
 }
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000000;
+}
+
+
+
+.navLinks {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  max-width: 600px; /* Adjust this value as needed */
+  margin-left: 2rem;
+  text-decoration:double;
+  color: #ddd;
+}
+
+
+
+
+
+
+
+
+

@@ -1,14 +1,15 @@
 import React from 'react';
 import Home from './Home'; // Adjust the path as needed
 import Body from "./Body"
+import NavBar from './NavBar';
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <NavBar/>
       <Home />
       <Body />
     </div>
   );
 }
-
 export default App;

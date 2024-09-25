@@ -5,6 +5,7 @@ function Home() {
   // Your existing App.js content goes here
   return (
     <div>
+      
         <h1 className='h1'>
             Rockies Pitchers
         </h1>

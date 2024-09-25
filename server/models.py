@@ -37,5 +37,7 @@ class Pitcher(db.Model, SerializerMixin):
         if value is None:
             return None
         return round(float(value), decimal_places)
+    
+
 
             
