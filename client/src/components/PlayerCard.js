@@ -35,8 +35,7 @@ function PlayerCard() {
         <div key={pitcher.ROWID} className='player-card'>
           <h3>{pitcher.name}</h3>
           <p>ERA: {pitcher.era}</p>
-          <p>innings pitched: {pitcher.IP}</p>
-          <p>from {pitcher.From} to {pitcher.To}</p>
+          <p>{pitcher.From} to {pitcher.To}</p>
           {/* Add more pitcher details here */}
         </div>
       ))}
