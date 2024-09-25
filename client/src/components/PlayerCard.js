@@ -32,7 +32,7 @@ function PlayerCard() {
   return (
     <div className='card-grid'>
       {pitchers.map(pitcher => (
-        <div key={pitcher.ROWID} className='player-card'>
+        <div key={pitcher.id} className='player-card'>
           <h3>{pitcher.name}</h3>
           <p>ERA: {pitcher.era}</p>
           <p>{pitcher.From} to {pitcher.To}</p>

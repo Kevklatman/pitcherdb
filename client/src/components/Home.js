@@ -6,7 +6,7 @@ function Home() {
   return (
     <div>
         <h1 className='h1'>
-            home
+            Rockies Pitchers
         </h1>
       
     </div>
