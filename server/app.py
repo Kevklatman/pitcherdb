@@ -2,7 +2,7 @@ from flask import Flask, jsonify, make_response, request
 from flask_migrate import Migrate
 import os
 import logging
-from models import db, Pitcher  # Import db from models
+from models import db, Pitcher, PitcherView  # Import db from models
 from flask_cors import CORS
 
 
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 # Database configuration
 current_dir = os.path.abspath(os.path.dirname(__file__))
-db_path = os.path.join(current_dir, 'pitchers.db')
+db_path = os.path.join(current_dir, 'pitchersall.db')
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -68,6 +68,18 @@ def get_asg_pitchers():
     except Exception as e:
         logger.error(f"Error in get_asg_pitchers: {str(e)}")
         return make_response(jsonify({"error": "An unexpected error occurred"}), 500)
+    
+@app.route("/pitcher/<int:pitcher_id>", methods=['GET'])
+def get_single_pitcher(pitcher_id):
+    try:
+        pitcher = PitcherView.query.get(pitcher_id)
+        if pitcher is None:
+            return make_response(jsonify({"error": "Pitcher not found"}), 404)
+        return make_response(jsonify(pitcher.to_dict()), 200)
+    except Exception as e:
+        logger.error(f"Error in get_single_pitcher: {str(e)}")
+        return make_response(jsonify({"error": "An unexpected error occurred"}), 500)
+
 
 if __name__ == "__main__":
     app.run(port=5555, debug=True)

@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card";
+import CardGrid from "./CardGrid"; 
 import SearchBar from "./SearchBar";
 
 function Body(){
@@ -9,7 +9,7 @@ function Body(){
         <SearchBar/>
     </div>
    <div>
-        <Card/>
+        <CardGrid/>
     </div>
     </div>
 )}
