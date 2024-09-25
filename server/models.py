@@ -24,7 +24,8 @@ class Pitcher(db.Model, SerializerMixin):
             'era': self.ERA,
             'yrs': self.Yrs, 
             'IP': self.IP,
-            'All-Star': self.ASG
+            'All-Star': self.ASG,
+            'img': self.img
         }
             
     def _round_value(self, value, decimal_places):
