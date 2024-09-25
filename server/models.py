@@ -13,6 +13,8 @@ class Pitcher(db.Model, SerializerMixin):
     IP = db.Column(db.Float)  # Changed to Float for more precision
     rk = db.Column(db.Integer)
     ASG = db.Column(db.Boolean)
+    From = db.Column(db.Integer)
+    To = db.Column(db.Integer)
     img = db.Column(db.String)
     
     def __repr__(self):
@@ -25,7 +27,10 @@ class Pitcher(db.Model, SerializerMixin):
             'yrs': self.Yrs, 
             'IP': self.IP,
             'All-Star': self.ASG,
+            'From': self.From,
+            'To': self.To,
             'img': self.img
+
         }
             
     def _round_value(self, value, decimal_places):
@@ -34,7 +39,3 @@ class Pitcher(db.Model, SerializerMixin):
         return round(float(value), decimal_places)
 
             
-    def _round_value(self, value, decimal_places):
-        if value is None:
-            return None
-        return round(float(value), decimal_places)

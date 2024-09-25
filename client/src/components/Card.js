@@ -1,15 +1,22 @@
 import React from 'react';
+import PlayerCard from './PlayerCard';
 
-function Card() {
+
+function CardGrid() {
   // Your existing App.js content goes here
   return (
     <div>
-        <h1>
-            home
-        </h1>
+      <div className="h2">
+        <p >
+          Pitchers
+        </p>
+      </div>
+        <p>
+            <PlayerCard/>
+        </p>
       
     </div>
   );
 }
 
-export default Card;
+export default CardGrid;

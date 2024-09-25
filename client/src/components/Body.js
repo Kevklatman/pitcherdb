@@ -1,10 +1,10 @@
 import React from "react";
-import PlayerCard from "./PlayerCard";
+import Card from "./Card";
 
 function Body(){
    return(
    <div>
-            <PlayerCard/>
+        <Card/>
     </div>
 )}
 

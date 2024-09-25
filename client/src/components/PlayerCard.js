@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../App.css'
 
 function PlayerCard() {
   const [pitchers, setPitchers] = useState([]);
@@ -29,13 +30,16 @@ function PlayerCard() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
-      <h1>Pitchers</h1>
-      <ul>
-        {pitchers.map(pitchers => (
-          <li key={pitchers.ROWID}>{pitchers.name}</li>
-        ))}
-      </ul>
+    <div className='card-grid'>
+      {pitchers.map(pitcher => (
+        <div key={pitcher.ROWID} className='player-card'>
+          <h3>{pitcher.name}</h3>
+          <p>ERA: {pitcher.era}</p>
+          <p>innings pitched: {pitcher.IP}</p>
+          <p>from {pitcher.From} to {pitcher.To}</p>
+          {/* Add more pitcher details here */}
+        </div>
+      ))}
     </div>
   );
 }
