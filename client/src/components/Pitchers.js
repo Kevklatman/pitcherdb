@@ -1,40 +1,18 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
+import React from 'react';
+import PlayerCard from './PlayerCard';
 
-function Pitcher() {
-  const { pitcherId = 2 } = useParams();
-  const [pitcher, setPitcher] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetchPitcher();
-  }, [pitcherId]);
-
-  const fetchPitcher = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(`http://127.0.0.1:5555/pitchers/${pitcherId}`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setPitcher(data);
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
-
+function Pitchers({ pitchers, onPitcherClick }) {
   return (
     <div>
-      <h2>{pitcher.name}</h2>
+      {pitchers.map(pitcher => (
+        <PlayerCard
+          key={pitcher.id}
+          pitcher={pitcher}
+          onPitcherClick={onPitcherClick}
+        />
+      ))}
     </div>
   );
 }
 
-export default Pitcher;
+export default Pitchers;
