@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './Home'; // Adjust the path as needed
-import Body from "./Body"
 import NavBar from './NavBar';
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
     <div>
       <NavBar/>
       <Home />
-      <Body />
+      <Home />
     </div>
   );
 }
