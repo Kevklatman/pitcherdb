@@ -1,28 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from './Home';
 import NavBar from './NavBar';
 import Pitchers from './Pitchers';
-import SinglePitcherCard from './SinglePitcherCard';
+import SinglePitcherView from './SinglePitcherView';
 
 function App() {
-  const handlePitcherClick = (pitcherId) => {
-    window.location.pathname = `/pitchers/${pitcherId}`;
+  const [selectedPitcher, setSelectedPitcher] = useState(null);
+
+  const handlePitcherClick = (pitcher) => {
+    setSelectedPitcher(pitcher);
+    window.history.pushState(null, '', `/pitchers/${pitcher.id}`);
   };
 
   const renderContent = () => {
     const path = window.location.pathname;
 
-    switch (path) {
-      case '/':
-        return <Home />;
-      case '/pitchers':
-        return <Pitchers onPitcherClick={handlePitcherClick} />;
-      case '/pitchers/:pitcherId':
-        const pitcherId = path.split('/')[2];
-        return <SinglePitcherCard pitcherId={pitcherId} />;
-      case '/stats':
-      default:
-        return <Home />;
+    if (path === '/') {
+      return <Home />;
+    } else if (path === '/pitchers') {
+      return <Pitchers onPitcherClick={handlePitcherClick} />;
+    } else if (path.startsWith('/pitchers/')) {
+      const pitcherId = path.split('/')[2];
+      return <SinglePitcherView pitcherId={pitcherId} />;
+    } else if (path === '/stats') {
+      return <Home />;
+    } else {
+      return <Home />;
     }
   };
 

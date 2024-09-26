@@ -9,6 +9,7 @@ function Pitchers({ pitchers, onPitcherClick }) {
           key={pitcher.id}
           pitcher={pitcher}
           onPitcherClick={onPitcherClick}
+
         />
       ))}
     </div>
