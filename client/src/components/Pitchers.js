@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 
-function Pitchers() {
+function Pitcher() {
   const { pitcherId = 2 } = useParams();
   const [pitcher, setPitcher] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -37,4 +37,4 @@ function Pitchers() {
   );
 }
 
-export default Pitchers;
+export default Pitcher;
