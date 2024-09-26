@@ -1,6 +1,6 @@
 import React from "react";
 import '../App.css';
-
+//the routes here are just placeholders for now ignore
 function NavBar() {
   return (
     <div>
