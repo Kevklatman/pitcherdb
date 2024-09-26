@@ -69,16 +69,18 @@ def get_asg_pitchers():
         logger.error(f"Error in get_asg_pitchers: {str(e)}")
         return make_response(jsonify({"error": "An unexpected error occurred"}), 500)
     
-@app.route("/pitcher/<int:pitcher_id>", methods=['GET'])
+@app.route("/pitchers/<int:pitcher_id>", methods=['GET'])
 def get_single_pitcher(pitcher_id):
     try:
-        pitcher = PitcherView.query.get(pitcher_id)
+        pitcher = Pitcher.query.get(pitcher_id)
         if pitcher is None:
             return make_response(jsonify({"error": "Pitcher not found"}), 404)
         return make_response(jsonify(pitcher.to_dict()), 200)
     except Exception as e:
         logger.error(f"Error in get_single_pitcher: {str(e)}")
         return make_response(jsonify({"error": "An unexpected error occurred"}), 500)
+    
+
 
 
 if __name__ == "__main__":
