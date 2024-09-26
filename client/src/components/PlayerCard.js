@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.css';
 
-function PlayerCard({ pitcher, onPitcherClick }) {
+function PlayerCard({ pitcher }) {
   const handleClick = () => {
-    onPitcherClick(pitcher);
+    console.log('click');
   };
 
   return (
