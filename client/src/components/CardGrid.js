@@ -3,7 +3,7 @@ import '../App.css';
 import PlayerCard from './PlayerCard';
 import SinglePitcherView from './SinglePitcherView';
 
-function CardGrid({ searchTerm, onPitcherClick }) {
+function CardGrid( { searchTerm, onPitcherClick } ) {
   const [pitchers, setPitchers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
