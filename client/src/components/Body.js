@@ -1,3 +1,4 @@
+import React from "react";
 import {useState} from "react";
 import CardGrid from "./CardGrid"; 
 import SearchBar from "./SearchBar";
