@@ -1,13 +1,13 @@
 import React from 'react';
 import '../App.css';
 
-function PlayerCard({ pitcher }) {
-  const handleClick = () => {
-    console.log('click');
+function PlayerCard({ pitcher, onPitcherClick }) {
+  const handlePitcherClick = () => {
+    onPitcherClick(pitcher);
   };
 
   return (
-    <div className="player-card" onClick={handleClick}>
+    <div className="player-card" onClick={handlePitcherClick}>
       <h3>{pitcher.name}</h3>
       <p>ERA: {pitcher.era}</p>
       <p>{pitcher.From} to {pitcher.To}</p>

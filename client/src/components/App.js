@@ -3,14 +3,10 @@ import Home from './Home';
 import NavBar from './NavBar';
 import Pitchers from './Pitchers';
 import SinglePitcherView from './SinglePitcherView';
+import PlayerList from './PlayerList';
 
 function App() {
   const [selectedPitcher, setSelectedPitcher] = useState(null);
-
-  const handlePitcherClick = (pitcher) => {
-    setSelectedPitcher(pitcher);
-    window.history.pushState(null, '', `/pitchers/${pitcher.id}`);
-  };
 
   const renderContent = () => {
     const path = window.location.pathname;
@@ -18,13 +14,11 @@ function App() {
     if (path === '/') {
       return <Home />;
     } else if (path === '/pitchers') {
-      return <Pitchers onPitcherClick={handlePitcherClick} />;
+      return <Pitchers />;
     } else if (path.startsWith('/pitchers/')) {
       const pitcherId = path.split('/')[2];
       return <SinglePitcherView pitcherId={pitcherId} />;
-    } else if (path === '/stats') {
-      return <Home />;
-    } else {
+    }else {
       return <Home />;
     }
   };
@@ -34,6 +28,7 @@ function App() {
       <NavBar />
       {renderContent()}
     </div>
+    
   );
 }
 
