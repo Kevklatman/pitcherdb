@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import PlayerCard from './PlayerCard';
 
-function CardGrid({ searchTerm }) {
+function PlayerList() {
   const [pitchers, setPitchers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,20 +27,16 @@ function CardGrid({ searchTerm }) {
     }
   };
 
-  const filteredPitchers = pitchers.filter((pitcher) =>
-    pitcher.name && pitcher.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="card-grid">
-      {filteredPitchers.map((pitcher) => (
+    <div className="player-list">
+      {pitchers.map((pitcher) => (
         <PlayerCard key={pitcher.id} pitcher={pitcher} />
       ))}
     </div>
   );
 }
 
-export default CardGrid;
+export default PlayerList;

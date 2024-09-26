@@ -1,17 +1,24 @@
-import React from "react";
+import {useState} from "react";
 import CardGrid from "./CardGrid"; 
 import SearchBar from "./SearchBar";
 
-function Body(){
-   return(
-   <div>
-    <div className="search-bar">
-        <SearchBar/>
-    </div>
-   <div>
-        <CardGrid/>
-    </div>
-    </div>
-)}
+function Body() {
+    const [searchTerm, setSearchTerm] = useState('');
+  
+    const handleSearch = (event) => {
+      setSearchTerm(event.target.value);
+    };
+  
+    return (
+      <div>
+        <div className="search-bar">
+          <SearchBar onSearch={handleSearch} />
+        </div>
+        <div>
+          <CardGrid searchTerm={searchTerm} />
+        </div>
+      </div>
+    );
+  }
 
 export default Body;
