@@ -7,7 +7,9 @@ function SinglePitcherView({ pitcherId }) {
   return (
     <div>
       <h2>Pitcher Details</h2>
-      {/* Render the pitcher details */}
+      <p>
+        {pitcherId.name}
+      </p>
     </div>
   );
 }
